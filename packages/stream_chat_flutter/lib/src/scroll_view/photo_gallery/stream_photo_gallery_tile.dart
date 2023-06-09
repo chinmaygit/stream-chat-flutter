@@ -204,7 +204,7 @@ class MediaThumbnailProvider extends ImageProvider<MediaThumbnailProvider> {
   @override
   ImageStreamCompleter loadImage(
     MediaThumbnailProvider key,
-    ImageDecoderCallback decode,
+    ui.ImageDecoderCallback decode,
   ) {
     return MultiFrameImageStreamCompleter(
       codec: _loadAsync(key, decode),
@@ -221,7 +221,7 @@ class MediaThumbnailProvider extends ImageProvider<MediaThumbnailProvider> {
 
   Future<ui.Codec> _loadAsync(
     MediaThumbnailProvider key,
-    ImageDecoderCallback decode,
+    ui.ImageDecoderCallback decode,
   ) async {
     assert(key == this, '$key is not $this');
     final bytes = await media.thumbnailDataWithSize(
